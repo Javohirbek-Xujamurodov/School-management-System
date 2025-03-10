@@ -1,45 +1,42 @@
 public class Main {
-    public class Main {
-        public static void main(String[] args) {
-            // 1. Maktab yaratamiz
-            School mySchool = new School();
+    public static void main(String[] args) {
+        School school = new School();
 
-            // 2. O‘qituvchilarni yaratamiz
-            Teacher teacher1 = new Teacher(1, "Ali", "Karimov", 5000);
-            Teacher teacher2 = new Teacher(2, "Madina", "Yoqubova", 6000);
+        Teacher teacher1 = new Teacher(1, "Hilbert", "Schild", 500);
+        Teacher teacher2 = new Teacher(2, "James", "Gosling", 700);
+        Teacher teacher3 = new Teacher(3, "John", "Doe", 600);
 
-            // 3. O‘qituvchilarni maktabga qo‘shamiz
-            mySchool.addTeacher(teacher1);
-            mySchool.addTeacher(teacher2);
+        Student student1 = new Student(1, "Jakhongir", "Jakhongirov", 4, 30000);
+        Student student2 = new Student(2, "Khunoyin", "Khunoyinov", 3, 40000);
+        Student student3 = new Student(3, "Dilshod", "Dilshodov", 1, 25000);
 
-            // 4. O‘quvchilarni yaratamiz
-            Student student1 = new Student(101, "Javohir", "Bekmurodov", 10);
-            Student student2 = new Student(102, "Marjona", "Turg‘unova", 9);
+        school.addTeacher(teacher1);
+        school.addTeacher(teacher2);
+        school.addTeacher(teacher3);
 
-            // 5. O‘quvchilarni maktabga qo‘shamiz
-            mySchool.addStudent(student1);
-            mySchool.addStudent(student2);
+        school.addStudent(student1);
+        school.addStudent(student2);
+        school.addStudent(student3);
 
-            // 6. O‘quvchilar to‘lov qilishadi
-            student1.payFees(15000);
-            mySchool.updateMoneyEarned(15000);
+        System.out.println("Earned money: $" + school.getTotalMoneyEarned());
+        System.out.println("Spent money: $" + school.getTotalMoneySpent());
+        System.out.println();
 
-            student2.payFees(10000);
-            mySchool.updateMoneyEarned(10000);
+        student1.payFees(5000, school);
+        System.out.println(student1.getFirstName() + " remaining fees: $" + student1.getRemainingFees());
 
-            // 7. O‘qituvchilarga maosh to‘laymiz
-            teacher1.receiveSalary(5000);
-            mySchool.updateMoneySpent(5000);
+        teacher1.receiveSalary(school);
 
-            teacher2.receiveSalary(6000);
-            mySchool.updateMoneySpent(6000);
+        System.out.println("Earned money: $" + school.getTotalMoneyEarned());
+        System.out.println("Spent money: $" + school.getTotalMoneySpent());
+        System.out.println();
 
-            // 8. Natijalarni ekranga chiqaramiz
-            System.out.println("Maktabning jami daromadi: " + mySchool.getTotalMoneyEarned());
-            System.out.println("Maktabning jami xarajatlari: " + mySchool.getTotalMoneySpent());
-            System.out.println("O‘quvchi " + student1.getFirstName() + " qancha to‘lagan: " + student1.getFeesPaid());
-            System.out.println("O‘qituvchi " + teacher1.getFirstName() + " qancha maosh olgan: " + teacher1.getSalary());
-        }
+        student2.payFees(6000, school);
+        System.out.println(student2.getFirstName() + " remaining fees: $" + student2.getRemainingFees());
+
+        teacher2.receiveSalary(school);
+
+        System.out.println("Earned money: $" + school.getTotalMoneyEarned());
+        System.out.println("Spent money: $" + school.getTotalMoneySpent());
     }
-
 }

@@ -1,17 +1,17 @@
 public class Student {
-    int id;
-    String firstName;
-    String lastName;
-    int grade;
-    int feesPaid = 0;
-    int feesTotal = 30000;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int grade;
+    private int feesPaid;
+    private int feesTotal;
 
-    public Student(int id, String firstName, String lastName, int grade, int feesPaid, int feesTotal) {
+    public Student(int id, String firstName, String lastName, int grade, int feesTotal) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
-        this.feesPaid = feesPaid;
+        this.feesPaid = 0;
         this.feesTotal = feesTotal;
     }
 
@@ -39,7 +39,12 @@ public class Student {
         return feesTotal;
     }
 
-    public void payFees(int amount) {
+    public void payFees(int amount, School school) {
         feesPaid += amount;
+        school.updateTotalMoneyEarned(amount);
+    }
+
+    public int getRemainingFees() {
+        return feesTotal - feesPaid;
     }
 }

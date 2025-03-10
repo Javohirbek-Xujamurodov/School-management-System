@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +8,10 @@ public class School {
     private int totalMoneySpent;
 
     public School() {
-        this.teachers = new ArrayList<>();
-        this.students = new ArrayList<>();
-        this.totalMoneyEarned = 0;
-        this.totalMoneySpent = 0;
+        teachers = new ArrayList<>();
+        students = new ArrayList<>();
+        totalMoneyEarned = 0;
+        totalMoneySpent = 0;
     }
 
     public void addTeacher(Teacher teacher) {
@@ -31,11 +30,11 @@ public class School {
         return totalMoneySpent;
     }
 
-    public void updateMoneyEarned(int amount) {
+    public void updateTotalMoneyEarned(int amount) {
         totalMoneyEarned += amount;
     }
 
-    public void updateMoneySpent(int amount) {
+    public void updateTotalMoneySpent(int amount) {
         totalMoneySpent += amount;
     }
 }

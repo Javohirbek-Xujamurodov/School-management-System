@@ -1,5 +1,8 @@
+package version1;
+
 public class Main {
     public static void main(String[] args) {
+
         School school = new School();
 
         Teacher teacher1 = new Teacher(1, "Hilbert", "Schild", 500);
@@ -7,7 +10,7 @@ public class Main {
         Teacher teacher3 = new Teacher(3, "John", "Doe", 600);
 
         Student student1 = new Student(1, "Jakhongir", "Jakhongirov", 4, 30000);
-        Student student2 = new Student(2, "Khunoyin", "Khunoyinov", 3, 40000);
+        Student student2 = new Student(2, "Khumoyun", "Khumoyunov", 5, 40000);
         Student student3 = new Student(3, "Dilshod", "Dilshodov", 1, 25000);
 
         school.addTeacher(teacher1);
@@ -22,21 +25,22 @@ public class Main {
         System.out.println("Spent money: $" + school.getTotalMoneySpent());
         System.out.println();
 
-        student1.payFees(5000, school);
-        System.out.println(student1.getFirstName() + " remaining fees: $" + student1.getRemainingFees());
+        student1.pay(5000);
+        System.out.println(student1.getName() + " remained fees: $" + student1.getRemainingFees());
 
-        teacher1.receiveSalary(school);
+        teacher1.receiveSalary();
 
         System.out.println("Earned money: $" + school.getTotalMoneyEarned());
         System.out.println("Spent money: $" + school.getTotalMoneySpent());
         System.out.println();
 
-        student2.payFees(6000, school);
-        System.out.println(student2.getFirstName() + " remaining fees: $" + student2.getRemainingFees());
+        student2.pay(6000);
+        System.out.println(student2.getName() + " remained fees: $" + student2.getRemainingFees());
 
-        teacher2.receiveSalary(school);
+        teacher2.receiveSalary();
 
         System.out.println("Earned money: $" + school.getTotalMoneyEarned());
         System.out.println("Spent money: $" + school.getTotalMoneySpent());
+        System.out.println();
     }
 }
